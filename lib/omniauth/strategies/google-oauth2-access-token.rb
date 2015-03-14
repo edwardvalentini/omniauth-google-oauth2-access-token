@@ -92,6 +92,8 @@ module OmniAuth
 
         # TODO: Validate the token
 
+        Rails.logger.debug "***got the auth hash here ***"
+        Rails.logger.debug "** #{auth_hash}"
         # Preserve compatibility with the google provider in normal case
         hash = auth_hash
         hash[:provider] = "google_oauth2"

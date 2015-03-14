@@ -94,7 +94,7 @@ module OmniAuth
 
         # Preserve compatibility with the google provider in normal case
         hash = auth_hash
-        hash[:provider] = "google"
+        hash[:provider] = "google_oauth2"
         self.env['omniauth.auth'] = hash
         call_app!
 

@@ -7,7 +7,7 @@ module OmniAuth
       include OmniAuth::Strategy
 
       BASE_SCOPE_URL = "https://www.googleapis.com/auth/"
-      DEFAULT_SCOPE = "userinfo.email,userinfo.profile"
+      DEFAULT_SCOPE = "email,https://www.googleapis.com/auth/plus.login"
 
       option :name, 'google_oauth2_access_token'
       option :skip_friends, true
@@ -68,7 +68,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get('https://www.googleapis.com/oauth2/v1/userinfo').parsed
+        @raw_info ||= access_token.get('https://www.googleapis.com/oauth2/v2/userinfo').parsed
       end
 
       def client

@@ -1,4 +1,5 @@
 require 'oauth2'
+require 'omniauth'
 
 module OmniAuth
   module Strategies
@@ -119,7 +120,7 @@ module OmniAuth
       def build_access_token
         hash = request.params.slice("access_token", "refresh_token", "expires_in", "token_type")
         ::OAuth2::AccessToken.from_hash(
-          client, 
+          client,
           hash.update(options.access_token_options)
         )
       end
